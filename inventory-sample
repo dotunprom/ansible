@@ -1,0 +1,19 @@
+192.991.02.0
+sample.roboshop.internal
+192.991.02.[20:30]
+
+#our scope in lab
+
+[DEV]
+catalogue-dev.roboshop.internal
+cart.dev.roboshop.internal
+
+[PRD]
+catalogue-prd.roboshop.internal
+cart-prd.roboshop.internal
+
+[CATALOGUE]
+catalogue-prd.roboshop.internal
+cart-dev.roboshop.internal
+
+
