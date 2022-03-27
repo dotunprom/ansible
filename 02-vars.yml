@@ -1,3 +1,4 @@
+- name: Play level variables from a file
   hosts: all
   vars:
     URL: play.example.com
