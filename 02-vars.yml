@@ -18,3 +18,14 @@
        ansible.builtin.debug:
          msg: URL = {{URL}}
 
+
+- name: Task level variable
+  hosts: all
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL = {{URL}}
+      vars:
+        URL: hosts.example.com
+
+# if we declare a variable on task level then, all the tasks can access that variables
