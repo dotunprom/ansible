@@ -43,4 +43,4 @@
   tasks:
     - name: Print Hostname
       ansible.builtin.debug:
-        msg: Architecture = {{ansible_architecture}}
+        msg: Architecture = {{ansible_architecture}} IP address = {{ansible_eth0.ipv4.address}}
