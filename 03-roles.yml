@@ -1,4 +1,4 @@
 - name: Play on role
-  hoste: all
+  hosts: all
   roles:
     - demo
