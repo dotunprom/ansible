@@ -37,6 +37,7 @@
       ansible.builtin.debug:
         msg: URL = {{URL}}
 
+
 - name: Fact Variable
   hosts: all
   tasks:
