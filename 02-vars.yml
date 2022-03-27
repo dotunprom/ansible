@@ -44,3 +44,20 @@
     - name: Print Hostname
       ansible.builtin.debug:
         msg: Architecture = {{ansible_architecture}} IP address = {{ansible_eth0.ipv4.address}}
+
+# ansible -i inv all -u centos -k -m setup
+# git pull ; ansible-playbook -i inv -u centos -k 02-vars.yml -e URL=cli.example.com
+# git pull ; ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 02-vars.yml -e URL=cli.example.com
+
+# shell module ansible(google)
+
+- name: Register variable
+  hosts: all
+  tasks:
+    - name: Run a shell command
+      ansible.builtin.shell: uptime
+      register: OUT #Variable
+
+        - name: Print Output of  shell command
+          ansible.builtin.debug:
+            msg: "{{OUT}}"
