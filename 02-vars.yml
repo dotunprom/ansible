@@ -1,7 +1,7 @@
 - name: Play Level Variables
   hosts: all
   vars:
-    URL: play.sample.com
+    URL: play.example.com
   tasks:
     name: Print URL
     ansible.builtin.debug:
