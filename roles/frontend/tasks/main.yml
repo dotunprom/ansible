@@ -32,8 +32,7 @@
     src: /tmp/frontend/static/
     dest: /usr/share/nginx/html/
     remote_src: yes
-  
-  ```
+
   # cd /usr/share/nginx/html
   # rm -rf *
   # unzip /tmp/frontend.zip
@@ -41,7 +40,3 @@
   # mv static/* .
   # rm -rf frontend-main README.md
   # mv localhost.conf /etc/nginx/default.d/roboshop.conf
-  
-  ```
-  
-  Finally restart the service once to effect the changes.
