@@ -22,7 +22,7 @@
     dest: /tmp
     remote_src: yes
   
-- name: Cleanup Old HTML
+- name: Cleanup Old HTML content
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
