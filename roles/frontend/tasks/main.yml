@@ -29,7 +29,7 @@
   ansible.builtin.systemd:
     name: nginx
     state: restarted
-    enable: yes
+    enabled: yes
 
 # Note: IN src and dest, ending '/' is very important when you are copying directories
 
