@@ -1,28 +1,3 @@
-- name: Install Nginx
-  yum:
-    name: nginx
-    state: Installed
-
-
-- name: Download Nginx file
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp
-    remote_src: yes
-  
-- name: Cleanup Old HTML content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-  
-- name: Copy the frontend content to nginx path
-  ansible.builtin.copy:
-    src: /tmp/frontend/static/
-    dest: /usr/share/nginx/html/
-    remote_src: yes
-
-#- name: Print Frontend
-#  ansible.builtin.debug:
-#    msg: Frontend
-
-# "yum module ansible" {google}: go straight to example for format
+- name: Print Frontend
+  ansible.builtin.debug:
+    msg: Frontend
