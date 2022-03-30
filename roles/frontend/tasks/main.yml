@@ -3,10 +3,10 @@
     name: nginx
     state: installed
 
-- name: Download and Extract Frontend
+- name: Dowload and Extract Frontend
   include_role:
     name: common
-    task_from: download
+    tasks_from: download
 
 - name: Cleanup Old HTML content
   ansible.builtin.file:
