@@ -52,5 +52,5 @@
     file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
   loop:
-    - Catalogue
+    - catalogue
     - users
