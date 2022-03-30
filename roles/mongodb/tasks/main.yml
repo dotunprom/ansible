@@ -20,10 +20,10 @@
     state: started
     enabled: yes
 
-- name: Download and Extract MongoDB Schema
+- name: Dowload and Extract MongoDB
   include_role:
     name: common
-    task_from: download
+    tasks_from: download
 
 - name: Load Schema
   community.mongodb.mongodb_shell:
