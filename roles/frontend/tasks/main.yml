@@ -3,7 +3,7 @@
 #    msg: Frontend
 
 - name: Install Nginx
-  yum:
+  ansible.builtin.debug:
     name: nginx
     state: Installed
 
