@@ -4,10 +4,9 @@
     state: installed
 
 - name: Download Nginx file
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp
-    remote_src: yes
+  include_role:
+    name: common
+    task_from: download
 
 - name: Cleanup Old HTML content
   ansible.builtin.file:
