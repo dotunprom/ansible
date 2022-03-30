@@ -20,6 +20,20 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
+- name: Copy Roboshop Configuration
+  ansible.builtin.copy:
+    src: roboshiop.conf
+    dest: /etc/usr/nginx/default.d/roboshop.conf
+    remote_src: yes
+
+- name: Start Nginx Service
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+    enable: yes
+
+# Note: IN src and dest, ending '/' is very important when you are copying directories
+
 #- name: Print Frontend
 #  ansible.builtin.debug:
 #    msg: Frontend
