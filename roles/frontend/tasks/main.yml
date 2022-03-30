@@ -1,7 +1,7 @@
-#- name: Install Nginx
-#  ansible.builtin.yum:
-#    name: nginx
-#    state: Installed
+- name: Install Nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: latest
 
 #- name: Download Nginx file
 #  ansible.builtin.unarchive:
@@ -20,8 +20,8 @@
 #    dest: /usr/share/nginx/html/
 #    remote_src: yes
 #
-- name: Print Frontend
-  ansible.builtin.debug:
-    msg: Frontend
+#- name: Print Frontend
+#  ansible.builtin.debug:
+#    msg: Frontend
 
 # "yum module ansible" {google}: go straight to example for format
