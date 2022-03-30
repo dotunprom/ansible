@@ -3,3 +3,9 @@
   become: yes
   roles:
     - frontend
+
+- name: setup MongoDB component
+  hosts: MONGODB
+  become: yes
+  roles:
+    - Mongodb

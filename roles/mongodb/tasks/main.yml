@@ -1,0 +1,29 @@
+#  1. Install Mongo & Start Service.
+#
+#      1. Setup MongoDB repos.
+#
+#      ```bash
+#      curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo
+#      ```
+#
+#    ```bash
+#    # yum install -y mongodb-org
+#    # systemctl enable mongod
+#    # systemctl start mongod
+#
+#    ```
+#
+#    1. Update Listen IP address from 127.0.0.1 to 0.0.0.0 in config file
+#
+#  Config file: `/etc/mongod.conf`
+#
+#    then restart the service
+#
+#    ```bash
+#    # systemctl restart mongod
+#
+#    ```
+#
+#    ## Every Database needs the schema to be loaded for the application to work.
+#
+#    Download the schema and load it.
