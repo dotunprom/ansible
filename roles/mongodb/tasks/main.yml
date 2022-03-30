@@ -1,12 +1,3 @@
-#  1. Install Mongo & Start Service.
-#
-#      1. Setup MongoDB repos.
-#
-#      ```bash
-#      curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo
-#      ```
-#
-#    ```bash
 #    # yum install -y mongodb-org
 #    # systemctl enable mongod
 #    # systemctl start mongod
@@ -27,3 +18,19 @@
 #    ## Every Database needs the schema to be loaded for the application to work.
 #
 #    Download the schema and load it.
+
+- name: Copy Mongodb repo file
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+- name: Install MongoDB
+    ansible.buitlin.yum:
+      name: mongodb-org
+      state: installed
+
+- name: Update MongoDB Configuration - Update Listen Address
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: 127.0.0.1
+    replace: 0.0.0.0
