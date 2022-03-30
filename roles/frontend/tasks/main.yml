@@ -1,7 +1,7 @@
 - name: Install Nginx
   ansible.builtin.yum:
     name: nginx
-    state: Installed
+    state: Present
 
 - name: Download Nginx file
   ansible.builtin.unarchive:
