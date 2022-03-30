@@ -3,7 +3,7 @@
     name: nginx
     state: installed
 
-- name: Download Nginx file
+- name: Download and Extract Frontend
   include_role:
     name: common
     task_from: download
