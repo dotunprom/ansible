@@ -1,17 +1,24 @@
-- name: setup frontend component
-  hosts: FRONTEND
-  become: yes
-  roles:
-    - frontend
+#- name: setup frontend component
+#  hosts: FRONTEND
+#  become: yes
+#  roles:
+#    - frontend
+#
+#- name: setup MongoDB component
+#  hosts: MONGODB
+#  become: yes
+#  roles:
+#    - mongodb
+#
+#- name: setup catalogue component
+#  hosts: CATALOGUE
+#  become: yes
+#  roles:
+#    - catalogue
 
-- name: setup MongoDB component
-  hosts: MONGODB
-  become: yes
-  roles:
-    - mongodb
 
-- name: setup catalogue component
-  hosts: CATALOGUE
+- name: Roboshop Setup
   become: yes
+  hosts: '{{HOST}}'
   roles:
-    - catalogue
+    - "{{role_name}}"
