@@ -35,7 +35,7 @@
     path: /home/roboshop/catalogue/
   become_user: roboshop
 
-- name: Start Catalogue Service
+- name: Copy Systemd File
   ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/catalogue.service
@@ -44,5 +44,5 @@
   ansible.builtin.systemd:
     name: catalogue
     state: restarted
-    enable: yes
+    enabled: yes
     daemon_reload: yes
