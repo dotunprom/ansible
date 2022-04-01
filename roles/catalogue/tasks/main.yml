@@ -56,7 +56,7 @@
 
 - name: Cleanup Old HTML content
   ansible.builtin.file:
-    path: /home/roboshop/catalogue/
+    path: /home/roboshop/catalogue
     state: absent
 
 - name: Copy App Content
