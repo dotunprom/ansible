@@ -41,11 +41,11 @@
 
 - name: Cleanup Old content
   ansible.builtin.file:
-    path: /home/roboshop/catalogue
+    path: /home/roboshop/catalogue/
     state: absent
 
 - name: Copy App Content
   ansible.builtin.copy:
-    src: /tmp/catalogue-main
-    dest: /home/roboshop/catalogue
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/catalogue/
     remote_src: yes
