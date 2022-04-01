@@ -34,8 +34,8 @@
 #
 #  2. Now, lets set up the service with systemctl.
 
-  - name: Configure YUM repos
-    ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+- name: Configure YUM repos
+  ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
 
 - name: Install NodeJS
   ansible.builtin.yum:
