@@ -36,12 +36,12 @@
   become_user: roboshop
 
 - name: Start Catalogue Service
-  ansible.builtin.systemd:
+  ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/catalogue.service
 
 - name: Start Catalogue Service
-  ansible.builtin.copy:
+  ansible.builtin.systemd:
     name: catalogue
     state: restarted
     enable: yes
