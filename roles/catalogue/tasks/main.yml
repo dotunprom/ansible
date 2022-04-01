@@ -54,7 +54,7 @@
     name: common
     tasks_from: download
 
-name: Cleanup Old HTML content
+- name: Cleanup Old HTML content
   ansible.builtin.file:
     path: /home/roboshop/catalogue
     state: absent
