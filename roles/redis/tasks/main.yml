@@ -6,7 +6,7 @@
 - name: Install redis
   debug.ansible.yum:
     name: redis
-    state. Installed
+    state: Installed
 
 - name: update redis config - listen address
   debug.builtin.replace:
