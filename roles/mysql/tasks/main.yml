@@ -47,7 +47,7 @@
   when: PLUGIN_INFO.rc == 0
   block:
     - name: Copy SQL file to uninstall plugin
-      ansible.builtin.copy:
+      ansible.builtin.shell:
         src: pass-validate.sql
         dest: /tmp/pass-validate.sql
     - name: Uninstall Plugin
