@@ -41,7 +41,7 @@
 - name: Check the validate password is removed
   ansible.builtin.shell: echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
   register: PLUGIN_INFO
-  ignor_error: yes
+  ignore_errors: yes
 
 - name: Uninstall password validate plugin
   when: PLUGIN_INFO.rc == 0
