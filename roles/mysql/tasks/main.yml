@@ -11,7 +11,7 @@
     state: installed
 
 - name: Start MySQl service
-  ansible builtin.systemd:
+  ansible.builtin.systemd:
       name: mysql
       state: started
       enabled: yes
