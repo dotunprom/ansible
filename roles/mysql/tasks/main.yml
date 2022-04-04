@@ -39,7 +39,7 @@
       ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{DEFAULT_ROOT_PASSWORD}}" </tmp/rootpas.sql
 
 - name: Check the validate password is removed
-  ansbible.builtin.shell: echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
+  ansible.builtin.shell: echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
   register: PLUGIN_INFO
   ignor_error: yes
 
