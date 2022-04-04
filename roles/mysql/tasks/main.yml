@@ -20,8 +20,8 @@
   community.mysql.mysql_info:
       login_user: root
       login_password: RoboShop@1
-#  ignore_errors: yes
-#  register: mysql_stat
+  ignore_errors: yes
+  register: mysql_stat
 #
 #- name: Reset MySQl Password
 #  when: mysql_stat.failed
