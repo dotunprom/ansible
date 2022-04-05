@@ -52,7 +52,7 @@
         dest: /tmp/pass-validate.sql
     - name: Uninstall Plugin
       community.mysql.mysql_db:
-        - state: import
+          state: import
           name: all
           target: /tmp/pass-validate.sql
           login_user: root
