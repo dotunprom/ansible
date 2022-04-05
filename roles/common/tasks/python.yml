@@ -22,13 +22,13 @@
 
 - name: Update USER ID in App Configuration
   ansible.builtin.lineinfile:
-    path: /home/robsohop/{{COMPONENT}}/{{COMPONENT}}.ini
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^uid'
     line: uid = {{APP_USER_REGISTER.uid}}
 
 - name: Update GROUP ID in App Configuration
   ansible.builtin.lineinfile:
-    path: /home/robsohop/{{COMPONENT}}/{{COMPONENT}}.ini
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
     line: gid = {{APP_USER_REGISTER.group}}
 
