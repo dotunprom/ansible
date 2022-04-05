@@ -9,7 +9,7 @@
     state: installed
 
 - name: Start RabbitMQ Service
-  ansible.builtin.syetemd:
+  ansible.builtin.systemd:
     name: rabbitmq-server
     state: started
 
