@@ -1,23 +1,23 @@
 [FRONTEND]
-frontend.roboshop.internal
+172.31.85.45
 
 [MONGODB]
-mongodb.roboshop.internal
+172.31.87.141
 
 [CATALOGUE]
-catalogue.roboshop.internal
+172.31.80.74
 
 [REDIS]
-redis.roboshop.internal
+172.31.21.239
 
 [USER]
-user.roboshop.internal
+172.31.90.60
 
 [CART]
-cart.roboshop.internal
+172.31.85.94
 
 [MYSQL]
-mysql.roboshop.internal
+172.31.24.63
 
 [SHIPPING]
-shipping.roboshop.internal
+172.31.19.189
