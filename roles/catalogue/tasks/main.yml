@@ -2,9 +2,3 @@
   include_role:
     name: common
     tasks_from: nodejs
-
-- name: Install NodeJs dependencies
-  ansible.builtin.shell: mvn clean package target/shipping-1.0.jar shipping.jar
-  args:
-    chdir: /home/roboshop/{{COMPONENT}}/
-  become_user: roboshop
