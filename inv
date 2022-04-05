@@ -1,23 +1,23 @@
 [FRONTEND]
-172.31.85.45
+frontend.roboshop.internal
 
 [MONGODB]
-172.31.87.141
+mongodb.roboshop.internal
 
 [CATALOGUE]
-172.31.80.74
+catalogue.roboshop.internal
 
 [REDIS]
-172.31.21.239
+redis.roboshop.internal
 
 [USER]
-172.31.90.60
+user.roboshop.internal
 
 [CART]
-172.31.85.94
+cart.roboshop.internal
 
 [MYSQL]
-172.31.24.63
+mysql.roboshop.internal
 
 [SHIPPING]
-172.31.19.189
+shipping.roboshop.internal
