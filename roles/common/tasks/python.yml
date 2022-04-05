@@ -36,4 +36,4 @@
 - name: Setup Systemd
   include_role:
     name: common
-    tasks_from: download
+    tasks_from: systemd
