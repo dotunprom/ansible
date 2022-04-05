@@ -14,9 +14,8 @@
     tasks_from: download
 
 - name: Install NodeJs dependencies
-  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
-  args:
-    chdir: /home/roboshop/{{COMPONENT}}
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 
 - name: Setup Systemd
