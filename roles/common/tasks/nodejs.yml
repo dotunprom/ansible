@@ -9,7 +9,7 @@
     state: installed
 
 - name: Setup App User, Dowload and Extract {{COMPONENT}} content
-  include_role:
+  ansible.builtin.include_role:
     name: common
     tasks_from: download
 
@@ -19,6 +19,6 @@
   become_user: roboshop
 
 - name: Setup Systemd
-  include_role:
+  ansible.builtin.include_role:
     name: common
     tasks_from: download
