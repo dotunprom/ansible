@@ -16,6 +16,7 @@
 - name: Install NodeJs dependencies
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
+    state: present
   become_user: roboshop
 
 - name: Setup Systemd
