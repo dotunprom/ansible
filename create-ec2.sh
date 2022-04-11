@@ -21,3 +21,16 @@ PRIVATE_IP=$(aws ec2 run-instances \
 
   sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
+
+#  AMI_ID=$(aws ecs describe-images -- filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
+AMI_ID="ami-0a70bc20891e5e986"
+  SGID=$(aws ec2 describes-security-groups --filters Name=group-name,Values=allow-all-from-public | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
+
+  if [ "$1" == "all" ]; then
+    for component in catalogue cart user shipping payment frontend mongodb mysaql rabbitmq redis ; do
+      COMPONENT=$component
+      create_ec2
+    done
+  else
+    create_ec2
+  fi
