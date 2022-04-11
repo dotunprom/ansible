@@ -3,24 +3,3 @@
   hosts: '{{HOST}}'
   roles:
     - "{{role_name}}"
-
-# git pull ; ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 roboshop.yml -e role_name=frontend -e HOST=FRONTEND
-#- name: setup frontend component
-#  hosts: FRONTEND
-#  become: yes
-#  roles:
-#    - frontend
-#
-#- name: setup MongoDB component
-#  hosts: MONGODB
-#  become: yes
-#  roles:
-#    - mongodb
-#
-#- name: setup catalogue component
-#  hosts: CATALOGUE
-#  become: yes
-#  roles:
-#    - catalogue
-
-
