@@ -1,3 +1,2 @@
-- name: Test
-  debug:
-    msg: Common Role
+- name: Setup Hostname
+  shell: set-hostname {{COMPONENT}}

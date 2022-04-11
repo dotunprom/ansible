@@ -1,0 +1,6 @@
+- name: Demo on Vault
+  hosts: localhost
+  tasks:
+    - name: Print
+      debug:
+        msg: PASSWORD = abc@123
