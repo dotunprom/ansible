@@ -5,8 +5,8 @@
   ansible.builtin.yum:
     name:
       - nodejs
-      - gcc-c++
       - npm
+      - gcc-c++
     state: installed
 
 - name: Setup App User, Dowload and Extract {{COMPONENT}} content
