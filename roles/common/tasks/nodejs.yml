@@ -6,6 +6,7 @@
     name:
       - nodejs
       - gcc-c++
+      - npm
     state: installed
 
 - name: Setup App User, Dowload and Extract {{COMPONENT}} content
