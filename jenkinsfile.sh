@@ -1,15 +1,15 @@
 pipeline{
   agent any
 
-  statges {
+  stages {
 
     stage('Do a Dry Run') {
       steps {
-        ssh '''
+        sh '''
           ansible-playbook roboshop.yml -e HOST=localhost -e role_name=frontend -C
-          '''
+        '''
       }
-      }
+    }
 
   }
 }
