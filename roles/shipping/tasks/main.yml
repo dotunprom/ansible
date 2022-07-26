@@ -1,4 +1,0 @@
-- name: Maven App SetUp
-  include_role:
-    name: common
-    tasks_from: maven

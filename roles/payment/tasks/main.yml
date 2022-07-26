@@ -1,5 +1,0 @@
-- name: Python App SetUp
-  include_role:
-    name: common
-    tasks_from: python
-

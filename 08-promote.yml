@@ -1,6 +1,0 @@
-- name: Demo on Code promotion
-  hosts: localhost
-  tasks:
-    - name: Print ENV
-      ansible.builtin.debug:
-        msg: Environment == {{ENV}}

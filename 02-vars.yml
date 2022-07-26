@@ -45,6 +45,8 @@
       ansible.builtin.debug:
         msg: Architecture = {{ansible_architecture}} IP address = {{ansible_eth0.ipv4.address}}
 
+# Variable Precedent: Command line variable is prootized, then task level, file variable, paly level, inventory variable
+
 # ansible -i inv all -u centos -k -m setup
 # git pull ; ansible-playbook -i inv -u centos -k 02-vars.yml -e URL=cli.example.com
 # git pull ; ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 02-vars.yml -e URL=cli.example.com

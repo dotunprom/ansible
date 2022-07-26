@@ -1,7 +1,0 @@
-## If any task is changed and if we want to run another task then handlers comes into place.
-## by default handlers run at the ending of the play , this behaviour can be changed as well and run immediate also.
-
-- name: Restart Nginx
-  ansible.builtin.systemd:
-    name: nginx
-    state: restarted
