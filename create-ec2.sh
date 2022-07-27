@@ -24,7 +24,7 @@ PRIVATE_IP=$(aws ec2 run-instances \
 
 #  AMI_ID=$(aws ecs describe-images -- filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
 AMI_ID="ami-0a70bc20891e5e986"
-  SGID=$(aws ec2 describes-security-groups --filters Name=group-name,Values=allow-all-from-public | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
+  SGID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=allow-all-from-public | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 
   if [ "$1" == "all" ]; then
     for component in catalogue cart user shipping payment frontend mongodb mysaql rabbitmq redis ; do
