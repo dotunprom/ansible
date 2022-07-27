@@ -1,3 +1,46 @@
 - name: Print Frontend
   ansible.builtin.debug:
     msg: Frontend
+
+    # yum install nginx -y
+    # systemctl enable nginx
+    # systemctl start nginx
+
+    Let's download the HTDOCS content and deploy under the Nginx path.
+
+    ```
+    # curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+
+    ```
+
+    Deploy the downloaded content in Nginx Default Location.
+
+    ```
+    # cd /usr/share/nginx/html
+    # rm -rf *
+    # unzip /tmp/frontend.zip
+    # mv /usr/share/nginx/html* .
+    # mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
+
+
+- name: Install Nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: installed
+
+- name: Download and extract Frontend
+  ansible.builtin.unarchive:
+    src: curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Cleanup Old HTML Content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Copy the frontend content to nginx path
+  ansible.builtin.copy:
+    src: /tmp/usr/share/nginx/html
+    dest: /usr/share/nginx/html/
+    remote_src: yes
