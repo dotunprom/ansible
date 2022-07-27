@@ -1,2 +1,5 @@
 [FRONTEND]
-44.202.244.27
+frontend.roboshop.internal
+
+[MONGODB]
+mongodb.roboshop.internal
