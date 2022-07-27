@@ -1,5 +1,4 @@
-- name: Roboshop Setup
-  become: yes
-  hosts: '{{HOST}}'
+- name: Setup Frontend Component
+  hosts: FRONTEND
   roles:
-    - "{{ role_name }}"
+    - frontend
