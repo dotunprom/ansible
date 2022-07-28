@@ -7,7 +7,7 @@
     name: nginx
     state: installed
 
-- name: Download and Extract Frontend Schema
+- name: Download and Extract Frontend
   include_role:
     name: common
     tasks_from: download
