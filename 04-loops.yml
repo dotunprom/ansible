@@ -9,10 +9,10 @@
         - banana
         - orange
 
-#   - name: Print Fruit Name and Inventory Count
-#     debug:
-#       - msg: Fruit Name = {{item.name}}, Available Count = {{item.count}}
-#     loop:
-#       - {name: apple, count: 10}
-#       - {name: banana, count: 20}
-#       - {name: orange, count: 30}
+    - name: Print Fruit Name and Inventory Count
+      debug:
+        - msg: Fruit Name = {{item.name}}, Available Count = {{item.count}}
+      loop:
+        - {name: apple, count: 10}
+        - {name: banana, count: 20}
+        - {name: orange, count: 30}
