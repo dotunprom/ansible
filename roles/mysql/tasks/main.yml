@@ -93,7 +93,8 @@
     login_user: root
     login_password: Roboshop@1
   ignore_errors: yes
+  register: mysql_stat
 
 - name: Reset Password
   debug:
-    msg: Resetting Password
+    msg: "{{mysql_stat}}"
