@@ -10,9 +10,9 @@
 
 - name: Update redid configuration - listen Address
   ansible.builtin.replace:
-    path: /etc/redis.config
+    path: /etc/redis.conf
     regexp: '127.0.0.1'
-    replace: `0.0.0.0`
+    replace: '0.0.0.0'
 
 - name: Start Redis
   ansible.builtin.systemd:
