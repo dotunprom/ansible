@@ -87,6 +87,6 @@
     enabled: yes
 
 - name: Check the DB Password by Collecting Information
-    community.mysql.mysql_info:
-      login_user: root
-      login_password: Roboshop@1
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: Roboshop@1
