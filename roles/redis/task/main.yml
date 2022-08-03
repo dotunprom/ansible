@@ -1,0 +1,21 @@
+- name: Setup Redis Yum Repo
+  ansible.builtin.copy:
+    src: redis.repo
+    dest: /etc/yum.repos.d/redis.repo
+
+- name: Install Redis
+  ansible.builtin.yum:
+    name: redis
+    state: installed
+
+- name: Update redid configuration - listen Address
+  ansible.builtin.replace:
+    path: /etc/redis.config
+    regexp: '127.0.0.1'
+    replace: `0.0.0.0`
+
+- name: Start Redis
+  ansible.builtin.systemd:
+    name: redis
+    state: restarted
+    enabled: yes
