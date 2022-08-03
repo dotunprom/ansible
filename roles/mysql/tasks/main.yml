@@ -95,6 +95,7 @@
   ignore_errors: yes
   register: mysql_stat
 
-- name: Reset Password
+- name: Reset Mysql Password
+  when: mysql_stat.failed
   debug:
     msg: "{{mysql_stat}}"
