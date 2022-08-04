@@ -123,7 +123,7 @@
         src: pass-validate.sql
         dest: /tmp/pass-validate.sql
 
-   - name: Uninstall Plugin
-     ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 </tmp/rootpass.sql
+    - name: Uninstall Plugin
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 </tmp/rootpass.sql
 
 
