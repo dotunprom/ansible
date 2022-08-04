@@ -1,0 +1,33 @@
+- name: conditions
+  hosts: localhost
+  vars:
+    a: abc
+    b: 10
+    c: true
+    d: false
+  tasks:
+    - name: condition on strings
+      debug:
+        msg: string condition is True
+      when: a == "abc"
+    - name: condition on strings 1
+      debug:
+        msg: string condition are not True
+      when: a != "abc"
+    - name: Number 1
+      debug:
+        msg: Both number are equal
+      when: b == 10
+    - name: Number 2
+      debug:
+        msg: b is less than 20
+      when: b < 20
+
+    - name: Boolean 1
+      debug:
+        msg: C is True
+      when: C
+    - name: Boolean 1
+      debug:
+        msg: D is False
+      when: not D
