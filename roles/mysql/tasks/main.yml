@@ -103,7 +103,7 @@
       register: DEFAULT_ROOT_PASSWORD
 
     - name: Copy the SQL Password Reset file
-      ansibl.builtin.copy:
+      ansible.builtin.copy:
         src: rootpass.sql
         dest: /tmp/rootpass.sql
 
