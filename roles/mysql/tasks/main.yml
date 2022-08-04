@@ -122,7 +122,6 @@
       ansible.builtin.copy:
         src: pass-validate.sql
         dest: /tmp/pass-validate.sql
-
     - name: Uninstall Plugin
       community.mysql.mysql_db:
         state: import
