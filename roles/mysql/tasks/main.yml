@@ -58,8 +58,8 @@
         login_user: root
         login_password: RoboShop@1
 
-#    - name: Uninstall Plugin
-#      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 </tmp/rootpass.sql
+    - name: Uninstall Plugin
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 </tmp/rootpass.sql
 
 - name: Download and Extract MySQL
   include_role:
