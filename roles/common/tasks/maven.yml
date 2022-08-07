@@ -1,0 +1,86 @@
+#1. Install Maven, This will install Java too
+#
+#```sql
+#  # yum install maven -y
+#```
+#
+#1. As per the standard process, we always run the applications as a normal user.
+#
+#Create a user
+#
+#```sql
+#  # useradd roboshop
+#```
+#
+#1. Download the repo
+#
+#```bash
+#$ cd /home/roboshop
+#$ curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/shipping/archive/main.zip"
+#$ unzip /tmp/shipping.zip
+#$ mv shipping-main shipping
+#$ cd shipping
+#$ mvn clean package
+#$ mv target/shipping-1.0.jar shipping.jar
+#```
+#
+#1. Update SystemD Service file
+#
+#Update `CARTENDPOINT` with Cart Server IP.
+#
+#Update `DBHOST` with MySQL Server IP
+#
+#2. Copy the service file and start the service.
+#
+#```sql
+#  # mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service
+#  # systemctl daemon-reload
+#  # systemctl start shipping
+#  # systemctl enable shipping
+
+- name: Install Maven
+  ansible.builtin.yum:
+    name:
+      - maven
+    state: installed
+
+- name: Add Application User
+  ansible.builtin.user:
+    name: roboshop
+    comment: Roboshop Project Application User
+
+- name: Download and Extract {{COMPONENT}} content
+  include_role:
+    name: common
+    tasks_from: download
+
+- name: Clean Old Content
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
+
+- name: Copy App Content
+  ansible.builtin.copy:
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
+    remote_src: yes
+  become_user: roboshop
+
+- name: Make Maven Package
+  ansible.builtin.shell: mvn clean package && target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
+- name: Copy SystemD File
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Start {{COMPONENT}} Service
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
+
