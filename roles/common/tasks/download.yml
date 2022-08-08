@@ -8,7 +8,7 @@
     src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
     dest: /tmp/
     remote_src: yes
-  become_user: "{{APP_USER}}"
+  become_user: roboshop
 
 #- name: Download and Extract {{COMPONENT}} content
 #  include_role:
