@@ -3,17 +3,17 @@
     name: roboshop
     comment: Roboshop Project Application User
 
-#- name: Download and Extract {{COMPONENT}}
-#  ansible.builtin.unarchive:
-#    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
-#    dest: /tmp
-#    remote_src: yes
-#  become_user: roboshop
+- name: Download and Extract {{COMPONENT}}
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+  become_user: roboshop
 
-#- name: Download and Extract {{COMPONENT}} content
-#  include_role:
-#    name: common
-#    tasks_from: download
+- name: Download and Extract {{COMPONENT}} content
+  include_role:
+    name: common
+    tasks_from: download
 
 - name: Cleanup Old Content
   ansible.builtin.file:
