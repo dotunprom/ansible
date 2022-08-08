@@ -21,6 +21,7 @@
     state: absent
 
 - name: Copy App Content
+  become_user: roboshop
   ansible.builtin.copy:
     dest: /home/roboshop/{{COMPONENT}}/
     src: /tmp/{{COMPONENT}}-main/
