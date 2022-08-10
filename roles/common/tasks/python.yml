@@ -20,6 +20,18 @@
   debug:
     msg: "{{APP_USER_REGISTER}}"
 
+- name: Update User ID in App Configuration
+  ansible.builtin.lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^uid'
+    line: uid = {{APP_USER_REGISTER.uid}}
+
+- name: Update Group ID in App Configuration
+  ansible.builtin.lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^gid'
+    line: gid = {{APP_USER_REGISTER.group}}
+
 - name: Setup SystemD
   include_role:
     name: common
