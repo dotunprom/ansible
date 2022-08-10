@@ -3,4 +3,4 @@
   tasks:
     - name: Print
       debug:
-        msg: PASSWORD: 123@
+        msg: PASSWORD = 123@
