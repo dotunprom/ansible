@@ -1,0 +1,10 @@
+- name: Ansible Filter
+  hosts: localhost
+  vars:
+    a: abc
+  tasks:
+    - name: Convert Case of String
+      debug:
+        msg: "{ { a | upper } }"
+
+# ansible pull is pulling mechanism, ansible-palybook: pushing mechanism
