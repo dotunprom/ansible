@@ -16,6 +16,10 @@
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
     executable: pip3
 
+- name: Print
+  debug:
+    msg: "{{APP_USER_REGISTER}}"
+
 - name: Setup SystemD
   include_role:
     name: common
