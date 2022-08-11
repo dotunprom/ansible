@@ -8,3 +8,5 @@
         msg: "{ { a | upper } }"
 
 # ansible pull is pulling mechanism, ansible-palybook: pushing mechanism
+
+#manipulate a data with "filters"

@@ -20,56 +20,56 @@
 # systemctl start catalogue
 # systemctl enable catalogue
 
-- name: Configure YUM repos.
-  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
-
-- name: Install NodeJS
-  ansible.builtin.yum:
-    name:
-      - nodejs
-      - gcc-c++
-    state: installed
-
-- name: Add Application User
-  ansible.builtin.user:
-    name: roboshop
-    comment: Roboshop Project Application User
-
-- name: Download and Extract Frontend
-  include_role:
-    name: common
-    tasks_from: download
-
-- name: Clean Old Content
-  ansible.builtin.file:
-    path: /home/roboshop/catalogue
-    state: absent
-
-- name: Copy App Content
-  ansible.builtin.copy:
-    src: /tmp/catalogue-main/
-    dest: /home/roboshop/catalogue/
-    remote_src: yes
-  become_user: roboshop
-
-- name: Install Nodejs Dependencies
-  community.general.npm:
-   path: /home/roboshop/catalogue
-  become_user: roboshop
-
-- name: Copy SystemD File
-  ansible.builtin.copy:
-    src: systemd.service
-    dest: /etc/systemd/system/catalogue.service
-
-- name: Start Catalogue Service
-  ansible.builtin.systemd:
-    name: catalogue
-    state: restarted
-    enabled: yes
-    daemon-reload: yes
-
-#- name: NodeJS App Setup
+#- name: Configure YUM repos.
+#  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+#
+#- name: Install NodeJS
+#  ansible.builtin.yum:
+#    name:
+#      - nodejs
+#      - gcc-c++
+#    state: installed
+#
+#- name: Add Application User
+#  ansible.builtin.user:
+#    name: roboshop
+#    comment: Roboshop Project Application User
+#
+#- name: Download and Extract Frontend
 #  include_role:
 #    name: common
-#    tasks_from: nodejs
+#    tasks_from: download
+#
+#- name: Clean Old Content
+#  ansible.builtin.file:
+#    path: /home/roboshop/catalogue
+#    state: absent
+#
+#- name: Copy App Content
+#  ansible.builtin.copy:
+#    src: /tmp/catalogue-main/
+#    dest: /home/roboshop/catalogue/
+#    remote_src: yes
+#  become_user: roboshop
+#
+#- name: Install Nodejs Dependencies
+#  community.general.npm:
+#   path: /home/roboshop/catalogue
+#  become_user: roboshop
+#
+#- name: Copy SystemD File
+#  ansible.builtin.copy:
+#    src: systemd.service
+#    dest: /etc/systemd/system/catalogue.service
+#
+#- name: Start Catalogue Service
+#  ansible.builtin.systemd:
+#    name: catalogue
+#    state: restarted
+#    enabled: yes
+#    daemon-reload: yes
+
+- name: NodeJS App Setup
+  include_role:
+    name: common
+    tasks_from: nodejs
