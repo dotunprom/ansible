@@ -38,7 +38,7 @@
   gather_facts: True
   ignore_errors: yes
   roles:
-    - "{ { role_name } }"
+    - "{{ role_name }}"
 
 - name: Terminate instances
   hosts: localhost
