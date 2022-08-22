@@ -1,0 +1,14 @@
+- name:  Create an EC2 Instance for Ansible Role Testing
+  host: localhost
+  tasks:
+    - name: Create EC2 Instance
+      amazon.aws.ec2:
+        instance_type: t3.micro
+        image: ami-003b1c9ee9b0bf5e9
+        wait: yes
+        group_id: sg-0af9708b72ca4469d
+        count: 1
+        vpc_subnet_id: subnet-29e63245
+        assign_public_ip: yes
+        instance_tags:
+            Name: ansible-role-check-instance
