@@ -9,6 +9,5 @@
         group_id: sg-0af9708b72ca4469d
         region: us-east-1
         count: 1
-        vpc_subnet_id: subnet-29e63245
         instance_tags:
             Name: ansible-role-check-instance
