@@ -10,6 +10,5 @@
         region: us-east-1
         count: 1
         vpc_subnet_id: subnet-29e63245
-        assign_public_ip: yes
         instance_tags:
             Name: ansible-role-check-instance
