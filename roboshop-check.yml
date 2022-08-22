@@ -1,4 +1,4 @@
-- name:  Create an EC2 Instance for Ansible Role Testing
+- name: Create an EC2 Instance for Ansible Role Testing
   host: localhost
   tasks:
     - name: Create EC2 Instance
