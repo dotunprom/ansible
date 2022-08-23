@@ -32,6 +32,7 @@
   notify: Restart Nginx
 
 - name: Start Nginx Service
+  ignore_errors: "{{CHECK_MODE}}"
   ansible.builtin.systemd:
     name: nginx
     state: restarted

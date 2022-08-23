@@ -36,7 +36,6 @@
   hosts: launched
   become: True
   gather_facts: True
-  ignore_errors: yes
   roles:
     - "{{ role_name }}"
 

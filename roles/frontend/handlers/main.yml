@@ -2,6 +2,7 @@
 #By default handlers run at the ending of the play, this behaviour can be changed as well and will run immediately
 
 - name: Restart Nginx
+  ignore_errors: "{{CHECK_MODE}}"
   ansible.builtin.systemd:
     name: nginx
     state: restarted
