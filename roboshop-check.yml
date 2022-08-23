@@ -28,8 +28,8 @@
       - name: Wait for SSH to come up
         delegate_to: "{{ item.public_ip}}"
         wait_for_connection:
-            delay: 60
-            timeout: 320
+            delay: 30
+            timeout: 120
         loop: "{{ ec2.instances }}"
 
 - name: Run Role To Test
@@ -47,3 +47,4 @@
         amazon.aws.ec2:
             state: 'absent'
             instance_ids: '{{ ec2.instance_ids }}'
+            region: us-east-1
