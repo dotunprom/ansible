@@ -1,11 +1,21 @@
 pipeline {
   agent any
+
+  options {
+    ansiColor('xterm')
+  }
+
+  environment {
+    SSH = credentials('SSH')
+  }
+
   stages {
+//   Here we are hardcoding role_name as frontend for demo purposes, but we need to underatand which role is realy modified and we need to parse that
+//   role name, we can get that info from commands. here is an example. git diff HEAD@{1} --name-only | grep roles | awk - F / '{print $2}'
     stage('Do dry run') {
       steps {
         sh '''
-          export ANSIBLE_ALLOW_WORLD_READABLE_TMPFILES=True
-          ansible-playbook roboshop.yml -e HOST=localhost -e role_name=frontend -c
+          ansible-playbook roboshop-check.yml -e role_name=frontend -e ansible_password=DevOps321 -e ENV=sandbox
         '''
         }
     }
