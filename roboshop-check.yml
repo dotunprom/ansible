@@ -31,19 +31,31 @@
             delay: 30
             timeout: 120
         loop: "{{ ec2.instances }}"
+      - name: Set a Instance_ID Variable
+        set_fact:
+          INSTANCE_ID: "{{ ec2.instance_ids }}"
 
 - name: Run Role To Test
   hosts: launched
   become: True
-  gather_facts: True
-  roles:
-    - "{{ role_name }}"
-
-- name: Terminate instances
-  hosts: localhost
+  gather_facts: NO
   tasks:
+    - name: Import the role and terminate the instance
+      block:
+        - name: Import a role
+          debug:
+            msg: test
+#          import_role:
+#            name: "{{ role_name }}"
+#  roles:
+#    - "{{ role_name }}"
+
+#- name: Terminate instances
+#  hosts: localhost
+#  tasks:
+    always:
       - name: Terminate instances that were previously launched
         amazon.aws.ec2:
             state: 'absent'
-            instance_ids: '{{ ec2.instance_ids }}'
+            instance_ids: '{{ INSTANCE_ID }}'
             region: us-east-1
