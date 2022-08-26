@@ -38,8 +38,11 @@
 - name: Run Role To Test
   hosts: launched
   become: True
-  gather_facts: TRUE
+  gather_facts: Yes
   tasks:
+    - name: set facts per host
+      set_fact:
+        INSTANCE_ID: "{{ hostvars[ 'localhost' ][ 'INSTANCE_ID' ] }}"
     - name: Import the role and terminate the instance
       block:
         - name: Import a role
@@ -55,7 +58,8 @@
 #  tasks:
     always:
       - name: Terminate instances that were previously launched
+        delegate_to: 127.0.0.1
         amazon.aws.ec2:
-            state: 'absent'
-            instance_ids: '{{ INSTANCE_ID }}'
-            region: us-east-1
+          state: 'absent'
+          instance_ids: '{{ INSTANCE_ID }}'
+          region: us-east-1
