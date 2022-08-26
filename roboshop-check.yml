@@ -46,10 +46,8 @@
     - name: Import the role and terminate the instance
       block:
         - name: Import a role
-          debug:
-            msg: test
-#          import_role:
-#            name: "{{ role_name }}"
+          import_role:
+            name: "{{ role_name }}"
 #  roles:
 #    - "{{ role_name }}"
 
