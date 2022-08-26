@@ -38,7 +38,7 @@
 - name: Run Role To Test
   hosts: launched
   become: True
-  gather_facts: NO
+  gather_facts: TRUE
   tasks:
     - name: Import the role and terminate the instance
       block:
