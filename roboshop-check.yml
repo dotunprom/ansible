@@ -56,10 +56,10 @@
 #- name: Terminate instances
 #  hosts: localhost
 #  tasks:
-    always:
-      - name: Terminate instances that were previously launched
-        delegate_to: 127.0.0.1
-        amazon.aws.ec2:
-          state: 'absent'
-          instance_ids: '{{ INSTANCE_ID }}'
-          region: us-east-1
+      always:
+        - name: Terminate instances that were previously launched
+          delegate_to: 127.0.0.1
+          amazon.aws.ec2:
+            state: 'absent'
+            instance_ids: '{{ INSTANCE_ID }}'
+            region: us-east-1
