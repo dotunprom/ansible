@@ -33,7 +33,7 @@ pipeline {
         sh 'echo only MAIN'
       }
     }
-
+}
 //   Here we are hardcoding role_name as frontend for demo purposes, but we need to underatand which role is realy modified and we need to parse that
 //   role name, we can get that info from commands. here is an example. git diff HEAD@{1} --name-only | grep roles | awk - F / '{print $2}'
 //     stage('Do dry run') {
