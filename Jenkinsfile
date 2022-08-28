@@ -15,6 +15,7 @@ pipeline {
     stage('Do dry run') {
       steps {
         sh '''
+          env
           ansible-playbook roboshop-check.yml -e role_name=frontend -e ansible_username=${SSH_USR} -e ansible_password=${SSH_PSW} -e ENV=sandbox -e CHECK_MODE=true
         '''
         }
