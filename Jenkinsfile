@@ -40,7 +40,7 @@ pipeline {
 
     stage('TAG'){
       when {
-        expression { TAG_NAME ==~ ".*" }
+        expression { BRANCH_NAME ==~ ".*" }
       }
       steps {
         sh '''
