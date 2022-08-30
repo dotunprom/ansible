@@ -29,8 +29,8 @@ pipeline {
 //     }
 
 
-    stage('Main'){
-    when { branch 'main'}
+    stage('MAIN'){
+    when { branch 'main' }
     steps {
       sh '''
         env
