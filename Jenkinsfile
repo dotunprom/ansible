@@ -29,7 +29,19 @@ pipeline {
 //     }
 
 
-    stage('Test'){
+    stage('Main'){
+    when { branch 'main'}
+    steps {
+      sh '''
+        env
+      '''
+      }
+    }
+
+    stage('Main'){
+      when {
+        expression { BRANCH_NAME ==~ ".*" }
+      }
       steps {
         sh '''
           env
