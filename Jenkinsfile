@@ -32,9 +32,12 @@ pipeline {
     stage('MAIN'){
     when { branch 'main' }
     steps {
-      sh '''
-        env
-      '''
+      sh 'env'
+      sh 'echo MAIN'
+
+//       sh '''
+//         env
+//       '''
       }
     }
 
