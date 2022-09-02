@@ -28,25 +28,25 @@ pipeline {
       }
     }
 
-//
-//     stage('MAIN'){
-//     when { branch 'main' }
-//     steps {
-//       sh '''
-//         env
-//       '''
-//       }
-//     }
 
-    stage('TAG'){
-      when {
-        expression { env.TAG_NAME != ".*" }
-      }
-      steps {
-        sh '''
-          env
-        '''
+    stage('MAIN'){
+    when { branch 'main' }
+    steps {
+      sh '''
+        env
+      '''
       }
     }
-  }
+
+//     stage('TAG'){
+//       when {
+//         expression { env.TAG_NAME != ".*" }
+//       }
+//       steps {
+//         sh '''
+//           env
+//         '''
+//       }
+//     }
+//   }
 }
