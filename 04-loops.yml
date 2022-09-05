@@ -1,7 +1,7 @@
 - name: Demo on Loops
   hosts: localhost
   tasks:
-    - name: Print fruit name
+    - name: Print Fruit Name
       debug:
         msg: Fruit Name = {{item}}
       loop:
@@ -9,10 +9,10 @@
         - banana
         - orange
 
-    - name: Print Fruit Name and Inventory Count
+    - name: Print fruit name and inventory count
       debug:
-       msg: Fruit Name = {{item.name}}, Available Count = {{item.count}}
+        msg: Fruit Name = {{item.name}}, Available Count = {{item.count}}
       loop:
-       - {name: apple, count: 10}
-       - {name: banana, count: 20}
-       - {name: orange, count: 30}
+        - {name: apple, count: 10}
+        - {name: banana, count: 20}
+        - {name: orange, count: 30}

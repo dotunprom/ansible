@@ -1,49 +1,49 @@
-- name: Copy mysql repo file
+- name: Copy MySQL repo file
   ansible.builtin.copy:
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
 
-- name: Install mysql server
+- name: Install MySQL Server
   ansible.builtin.yum:
     name:
-     - mysql-community-server
-     - MySQL-python
+      - mysql-community-server
+      - MySQL-python
     state: installed
 
-- name: Start MySQl service
+- name: Start MySQL Server
   ansible.builtin.systemd:
-      name: mysqld
-      state: started
-      enabled: yes
+    name: mysqld
+    state: started
+    enabled: yes
 
-- name: Check the DB Password by collecting Information
+- name: Check the DB Password by Collecting Information
   community.mysql.mysql_info:
-      login_user: root
-      login_password: RoboShop@1
+    login_user: root
+    login_password: RoboShop@1
   ignore_errors: yes
   register: mysql_stat
 
-- name: Reset MySQl Password
+- name: Reset Mysql Password
   when: mysql_stat.failed
   block:
-    - name: Grab Default Password of MySQl
+    - name: Grab Default Password of MySQL
       ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
       register: DEFAULT_ROOT_PASSWORD
 
-    - name: Copy the sql Password Reset File
+    - name: Copy the SQL Password Reset file
       ansible.builtin.copy:
         src: rootpass.sql
         dest: /tmp/rootpass.sql
 
-    - name: reset MySQL Password
+    - name: Reset Mysql Password
       ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{DEFAULT_ROOT_PASSWORD.stdout}}" </tmp/rootpass.sql
 
-- name: Check the validate password is removed
+- name: Check the validate password plugin is removed
   ansible.builtin.shell: echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
   register: PLUGIN_INFO
   ignore_errors: yes
 
-- name: Uninstall password validate plugin
+- name: Unistall Password Validate Plugin
   when: PLUGIN_INFO.rc == 0
   block:
     - name: Copy SQL file to uninstall plugin
@@ -52,11 +52,14 @@
         dest: /tmp/pass-validate.sql
     - name: Uninstall Plugin
       community.mysql.mysql_db:
-          state: import
-          name: all
-          target: /tmp/pass-validate.sql
-          login_user: root
-          login_password: RoboShop@1
+        state: import
+        name: all
+        target: /tmp/pass-validate.sql
+        login_user: root
+        login_password: RoboShop@1
+
+    - name: Uninstall Plugin
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 </tmp/rootpass.sql
 
 - name: Download and Extract MySQL
   include_role:
@@ -70,3 +73,5 @@
     target: /tmp/mysql-main/shipping.sql
     login_user: root
     login_password: RoboShop@1
+
+

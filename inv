@@ -22,8 +22,8 @@ mysql.roboshop.internal
 [SHIPPING]
 shipping.roboshop.internal
 
+[PAYMENT]
+payment.roboshop.internal
+
 [RABBITMQ]
 rabbitmq.roboshop.internal
-
-[PAYMENT]
-172.31.90.223

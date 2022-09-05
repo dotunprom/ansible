@@ -1,39 +1,38 @@
-- name: Install Maven
+- name: Install Python3
   ansible.builtin.yum:
     name:
       - python36
       - gcc
-      - python3-devel
-    state: present
+      - python36-devel
+    state: installed
 
-- name: Setup App User, Dowload and Extract {{COMPONENT}} content
-  ansible.builtin.include_role:
+- name: Setup App User, Download and Extract {{COMPONENT}} content
+  include_role:
     name: common
     tasks_from: download
 
-- name: Install python dependencies
-  ansible.builtin.pip:
+- name: Install Python3 Dependencies
+  pip:
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
     executable: pip3
 
 - name: Print
-  ansible.builtin.debug:
+  debug:
     msg: "{{APP_USER_REGISTER}}"
 
-- name: Update USER ID in App Configuration
+- name: Update User ID in App Configuration
   ansible.builtin.lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^uid'
     line: uid = {{APP_USER_REGISTER.uid}}
 
-- name: Update GROUP ID in App Configuration
+- name: Update Group ID in App Configuration
   ansible.builtin.lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
     line: gid = {{APP_USER_REGISTER.group}}
 
-
-- name: Setup Systemd
-  ansible.builtin.include_role:
+- name: Setup SystemD
+  include_role:
     name: common
     tasks_from: systemd
