@@ -40,7 +40,7 @@ pipeline {
 
     stage('TAG'){
       when {
-        expression { TAG_NAME != null }
+        expression { env.TAG_NAME != null }
       }
       steps {
         sh '''
