@@ -35,22 +35,22 @@ pipeline {
         sh 'env'
         sh 'echo MAIN'
 
-//       sh '''
-//         env
-//       '''
+      sh '''
+        env
+      '''
       }
     }
 
-//     stage('TAG'){
-//       when {
-//         expression { env.TAG_NAME != ".*" }
-//       }
-//       steps {
-//         sh '''
-//           env
-//         '''
-//       }
-//     }
-//   }
+    stage('TAG'){
+      when {
+        expression { BRANCH_NAME ==~ ".*" }
+      }
+      steps {
+        sh '''
+          env
+        '''
+      }
+    }
+  }
 }
 }
