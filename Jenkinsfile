@@ -10,7 +10,6 @@ pipeline {
   }
 
   stages {
-
     stage('Check Ansible Style Checks'){
       when { branch pattern:  "ROB-.*", comparator: "REGEXP"}
       steps {
