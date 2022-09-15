@@ -7,6 +7,7 @@ pipeline {
 
   environment {
     SSH = credentials('SSH')
+    GIT = credentials('GitHubToken')
   }
 
   stages {
@@ -33,9 +34,11 @@ pipeline {
       }
       steps {
         dir('CODE'){
-          git branch: 'main',url: 'https://github.com/dotunprom/ansible.git'
+          git branch: 'main',url: "https://${GIT_USR}:${GIT_PSW}github.com/dotunprom/ansible.git"
           sh '''
-            bash /tmp/sort
+            TAG=$(bash /tmp/sort)
+            git tag $TAG
+            git push --tags
           '''
       }
     }
