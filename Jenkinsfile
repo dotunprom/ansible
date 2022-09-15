@@ -32,11 +32,11 @@ pipeline {
 //         expression { env.TAG_NAME != null }
       }
       steps {
-        dir('CODE')
+        dir('CODE'){
           git branch: 'main',url: 'https://github.com/dotunprom/ansible.git'
-        sh '''
-         bash /tmp/sort
-        '''
+          sh '''
+            bash /tmp/sort
+          '''
       }
     }
   }
