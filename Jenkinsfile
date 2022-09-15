@@ -34,7 +34,7 @@ pipeline {
       }
       steps {
         dir('CODE'){
-          git branch: 'main',url: "https://${GIT_USR}:${GIT_PSW}github.com/dotunprom/ansible.git"
+          git branch: 'main',url: "https://${GIT_USR}:${GIT_PSW}@github.com/dotunprom/ansible.git"
           sh '''
             TAG=$(bash /tmp/sort)
             git tag $TAG
