@@ -34,6 +34,19 @@ pipeline {
       steps {
         sh '''
           env
+          #!/bin/bash
+
+          C1=$(git tag -l | awk -F . '{print $1}' | sort -n | uniq | tail -1)
+
+          git tag -l | grep "^${C1}" >/tmp/c1
+
+          C2=$(cat /tmp/c1 | awk -F . '{print $2}' | sort -n | uniq | tail -1)
+
+          cat /tmp/c1 | grep "^${C1}\\.${C2}.*" >/tmp/c2
+
+          C3=$(cat /tmp/c2 | awk -F . '{print $3}' | sort -n | uniq | tail -1)
+
+          cat /tmp/c2 | grep "^${C1}\\.${C2}\\.${C3}"
         '''
       }
     }
