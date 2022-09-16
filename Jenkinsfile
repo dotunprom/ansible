@@ -37,8 +37,8 @@ pipeline {
           git branch: 'main',url: "https://${GIT_USR}:${GIT_PSW}@github.com/dotunprom/ansible.git"
           sh '''
             TAG=$(bash /tmp/sort)
-            git tag $TAG
-            git push --tags
+//             git tag $TAG
+//             git push --tags
           '''
       }
     }
